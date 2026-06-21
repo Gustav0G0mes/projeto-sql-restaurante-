@@ -1,0 +1,60 @@
+CREATE DATABASE IF NOT EXISTS produtos;
+
+USE produtos;
+
+DROP TABLE produtos;
+
+CREATE TABLE produtos (
+id_produto INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(255) NOT NULL,
+descricao TEXT,
+preco DECIMAL(10,2) NOT NULL,
+categoria VARCHAR(100)
+);
+
+INSERT INTO produtos(nome, descricao, preco, categoria) VALUES
+					('Feijoada', 'Feijoada completa com arroz, farofa, couve e laranja.', 29.90, 'Prato Principal'),
+					('Picanha na Chapa', 'Picanha fatiada servida com alho, arroz, farofa e vinagrete.', 42.00, 'Prato Principal'),
+					('Moqueca Baiana', 'Moqueca de peixe e camarÃ£o, acompanhada de arroz branco e pirÃ£o.', 37.50, 'Prato Principal'),
+					('BobÃ³ de CamarÃ£o', 'CamarÃ£o cozido em creme de mandioca e azeite de dendÃª, servido com arroz.', 45.00, 'Prato Principal'),
+					('Bacalhau Ã  BrÃ¡s', 'Bacalhau desfiado, preparado com batata palha, ovos e cebola.', 38.00, 'Prato Principal'),
+					('Coxinha de Frango', 'Massa de batata com recheio cremoso de frango, servida frita.', 6.50, 'Aperitivo'),
+					('Pastel de Carne', 'Pastel frito com recheio de carne moÃ­da temperada.', 5.00, 'Aperitivo'),
+					('Pastel de Queijo', 'Pastel frito com recheio de queijo derretido.', 5.00, 'Aperitivo'),
+					('Empada de Palmito', 'Empada de massa podre recheada com creme de palmito.', 6.00, 'Aperitivo'),
+					('Risoto de CamarÃ£o', 'Risoto de camarÃ£o com toque de limÃ£o siciliano e alho-porÃ³.', 36.00, 'Prato Principal'),
+					('Escondidinho de Carne Seca', 'PurÃª de mandioca com recheio de carne seca e queijo coalho.', 32.00, 'Prato Principal'),
+					('Salada Caprese', 'Tomate, muÃ§arela de bÃºfala e manjericÃ£o, com azeite e vinagre balsÃ¢mico.', 22.00, 'Entrada'),
+					('Polenta Mole com RagÃº de LinguiÃ§a', 'Polenta cremosa servida com ragÃº de linguiÃ§a e molho de tomate.', 28.00, 'Prato Principal'),
+					('Frango Ã  Parmegiana', 'Peito de frango empanado coberto com queijo e molho de tomate, servido com arroz e fritas.', 35.00, 'Prato Principal'),
+					('SalmÃ£o Grelhado', 'SalmÃ£o grelhado servido com legumes no vapor e molho de alcaparras.', 42.00, 'Prato Principal'),
+					('Caipirinha de LimÃ£o', 'Tradicional caipirinha brasileira feita com cachaÃ§a, limÃ£o e aÃ§Ãºcar.', 15.00, 'Bebida'),
+					('Suco de MaracujÃ¡', 'Suco natural de maracujÃ¡.', 8.00, 'Bebida'),
+					('Chopp Gelado', 'Chopp claro, servido bem gelado.', 7.50, 'Bebida'),
+					('Mousse de MaracujÃ¡', 'Sobremesa leve e refrescante Ã  base de maracujÃ¡.', 12.00, 'Sobremesa'),
+					('Pudim de Leite', 'Pudim de leite condensado com calda de caramelo.', 10.00, 'Sobremesa');
+                    
+                    SELECT id_produto,
+LAG(id_produto) OVER (ORDER BY id_produto) AS anterior,id_produto - LAG(id_produto) OVER (ORDER BY id_produto) AS diferenca
+FROM produtos
+ORDER BY id_produto;
+
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE pedidos
+SET status = 'ConcluÃ­do'
+WHERE data_pedido < '2024-07-06';
+
+SELECT data_pedido, COUNT(*) AS total_atualizados
+FROM pedidos
+WHERE data_pedido < '2024-07-06'
+GROUP BY data_pedido
+ORDER BY data_pedido;
+
+SELECT * 
+FROM pedidos
+WHERE data_pedido < '2024-07-06'
+ORDER BY data_pedido, id_pedido;
+
+SET SQL_SAFE_UPDATES = 1;
