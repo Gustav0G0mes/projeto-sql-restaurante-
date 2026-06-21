@@ -1,0 +1,55 @@
+USE restaurante;
+
+CREATE DATABASE IF NOT EXISTS info_produtos;
+USE info_produtos;
+
+CREATE TABLE info_produtos (
+id_info INT PRIMARY KEY AUTO_INCREMENT,
+id_produto INT,
+ingredientes TEXT,
+fornecedor VARCHAR(255),
+    
+CONSTRAINT fk_produto
+FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
+
+
+USE restaurante;
+
+
+CREATE TABLE IF NOT EXISTS info_produtos (
+    id_info INT PRIMARY KEY AUTO_INCREMENT,
+    id_produto INT,
+    ingredientes TEXT,
+    fornecedor VARCHAR(255),
+
+    CONSTRAINT fk_info_produto
+        FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+--
+INSERT INTO info_produtos 	(id_produto, ingredientes, fornecedor) VALUES
+								(1, 'FeijÃ£o preto, carne seca, costelinha, linguiÃ§a, arroz, farinha, couve, laranja', 'Distribuidora Central'),
+								(2, 'Picanha, alho, arroz, farofa, vinagrete', 'Carnes Boi Nobre'),
+								(3, 'Peixe, camarÃ£o, leite de coco, azeite de dendÃª, arroz, farinha', 'Mar & Terra Distribuidora'),
+								(4, 'CamarÃ£o, mandioca, leite de coco, azeite, arroz', 'Mar & Terra Distribuidora'),
+								(5, 'Bacalhau, batata, ovo, cebola, azeite', 'Importadora Lisboa'),
+								(6, 'Frango, batata, massa de trigo', 'AvÃ­cola SÃ£o JosÃ©'),
+								(7, 'Carne moÃ­da, massa de trigo', 'Carnes Boi Nobre'),
+								(8, 'Queijo, massa de trigo', 'LaticÃ­nios Vale do Sereno'),
+								(9, 'Palmito, massa de trigo, creme de leite', 'Conservas Sabor da Terra'),
+								(10, 'CamarÃ£o, arroz arbÃ³reo, limÃ£o siciliano, alho-porÃ³', 'Mar & Terra Distribuidora'),
+								(11, 'Carne seca, mandioca, queijo coalho', 'Carnes Boi Nobre e LaticÃ­nios Vale do Sereno'),
+								(12, 'Tomate, muÃ§arela de bÃºfala, manjericÃ£o', 'Queijaria Bela Vista e Horta Santa Luzia'),
+								(13, 'LinguiÃ§a, polenta, molho de tomate', 'Carnes Boi Nobre e Moinho Dourado'),
+								(14, 'Frango, queijo, molho de tomate, arroz, batata', 'AvÃ­cola SÃ£o JosÃ© e LaticÃ­nios Vale do Sereno'),
+								(15, 'SalmÃ£o, legumes, alcaparras', 'Pescados do Norte e Hortifruti Natural da Terra'),
+								(16, 'CachaÃ§a, limÃ£o, aÃ§Ãºcar', 'Destilaria Nacional'),
+								(17, 'MaracujÃ¡', 'Hortifruti Natural da Terra'),
+								(18, 'Malte, lÃºpulo', 'Cervejaria do Vale'),
+								(19, 'MaracujÃ¡, creme de leite, aÃ§Ãºcar', 'Hortifruti Natural da Terra e LaticÃ­nios Vale do Sereno'),
+								(20, 'Leite condensado, ovos, aÃ§Ãºcar', 'LaticÃ­nios Vale do Sereno');
