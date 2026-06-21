@@ -1,0 +1,50 @@
+CREATE DATABASE IF NOT EXISTS clientes;
+USE clientes;
+
+CREATE TABLE IF NOT EXISTS clientes (
+    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    data_nascimento DATE,
+    endereco VARCHAR(255),
+    telefone VARCHAR(15),
+    email VARCHAR(100),
+    data_cadastro DATE
+);
+
+INSERT INTO clientes	(nome, cpf, data_nascimento, endereco, telefone, email, data_cadastro) VALUES
+						('Lucas Silva', '123.456.789-01', '1990-01-15', 'Av. Brigadeiro Faria Lima, 1571, SÃ£o Paulo', '11987651234', 'lucas.silva@email.com', '2023-01-12'),
+						('Ana Paula', '234.567.890-12', '1985-03-22', 'Rua Oscar Freire, 1290, SÃ£o Paulo', '11987652345', 'ana.paula@email.com', '2023-01-12'),
+						('Rafael Costa', '345.678.901-23', '1992-07-18', 'Av. Paulista, 1844, SÃ£o Paulo', '11987653456', 'rafael.costa@email.com', '2023-01-12'),
+						('Camila Rodrigues', '456.789.012-34', '1988-05-24', 'Rua Augusta, 2530, SÃ£o Paulo', '11987654567', 'camila.rodrigues@email.com', '2023-01-12'),
+						('Eduardo Santos', '567.890.123-45', '1975-11-30', 'Alameda Santos, 980, SÃ£o Paulo', '11987655678', 'eduardo.santos@email.com', '2023-01-12'),
+						('Fernanda Lima', '678.901.234-56', '1994-04-15', 'Rua da ConsolaÃ§Ã£o, 2000, SÃ£o Paulo', '11987656789', 'fernanda.lima@email.com', '2023-01-12'),
+						('Gustavo Pereira', '789.012.345-67', '1982-02-28', 'Av. RebouÃ§as, 3001, SÃ£o Paulo', '11987657890', 'gustavo.pereira@email.com', '2023-01-12'),
+						('Juliana Machado', '890.123.456-78', '1996-09-14', 'Av. Brasil, 1620, SÃ£o Paulo', '11987658901', 'juliana.machado@email.com', '2023-01-12'),
+						('Marcos Ribeiro', '901.234.567-89', '1991-12-12', 'Rua Bela Cintra, 1225, SÃ£o Paulo', '11987659012', 'marcos.ribeiro@email.com', '2023-01-12'),
+						('Patricia Almeida', '912.345.678-90', '1987-06-19', 'Rua Haddock Lobo, 1327, SÃ£o Paulo', '11987660123', 'patricia.almeida@email.com', '2023-01-12'),
+						('Roberto Nunes', '923.456.789-01', '1979-03-21', 'Av. Nove de Julho, 2045, SÃ£o Paulo', '11987661234', 'roberto.nunes@email.com', '2023-01-12'),
+						('Sandra Gomes', '934.567.890-12', '1984-08-10', 'Rua Pamplona, 1453, SÃ£o Paulo', '11987662345', 'sandra.gomes@email.com', '2023-01-12'),
+						('Tiago Souza', '945.678.901-23', '1989-01-15', 'Av. Europa, 784, SÃ£o Paulo', '11987663456', 'tiago.souza@email.com', '2023-01-12'),
+						('Vanessa Moraes', '956.789.012-34', '1974-10-23', 'Rua Amauri, 350, SÃ£o Paulo', '11987664567', 'vanessa.moraes@email.com', '2023-01-12'),
+						('Daniel Oliveira', '967.890.123-45', '1993-12-11', 'Rua dos Pinheiros, 900, SÃ£o Paulo', '11987665678', 'daniel.oliveira@email.com', '2023-01-12'),
+						('Maria Clara', '978.901.234-56', '1998-03-05', 'Av. Ibirapuera, 3103, SÃ£o Paulo', '11987666789', 'maria.clara@email.com', '2023-01-12'),
+						('JoÃ£o Pedro', '989.012.345-67', '1981-05-27', 'Rua TabapuÃ£, 1123, SÃ£o Paulo', '11987667890', 'joao.pedro@email.com', '2023-01-12'),
+						('Larissa Fonseca', '991.123.456-78', '1986-11-09', 'Av. Cidade Jardim, 400, SÃ£o Paulo', '11987668901', 'larissa.fonseca@email.com', '2023-01-12'),
+						('Henrique Silva', '992.234.567-89', '1990-02-14', 'Av. SÃ£o Gabriel, 477, SÃ£o Paulo', '11987669012', 'henrique.silva@email.com', '2023-01-12'),
+						('Isabela Freitas', '993.345.678-90', '1994-07-20', 'Rua Veneza, 1000, SÃ£o Paulo', '11987670123', 'isabela.freitas@email.com', '2023-01-12'),
+						('Giovanna Rocha', '994.456.789-01', '1987-12-01', 'Rua Artur Azevedo, 1767, SÃ£o Paulo', '11987671234', 'giovanna.rocha@email.com', '2023-01-12'),
+						('Leonardo Alves', '995.567.890-12', '1988-01-22', 'Rua Joaquim Antunes, 760, SÃ£o Paulo', '11987672345', 'leonardo.alves@email.com', '2023-01-12'),
+						('Beatriz Santos', '996.678.901-23', '1976-06-16', 'Av. Santo Amaro, 1230, SÃ£o Paulo', '11987673456', 'beatriz.santos@email.com', '2023-01-12'),
+						('Carlos Eduardo', '997.789.012-34', '1972-04-04', 'Rua Estados Unidos, 1457, SÃ£o Paulo', '11987674567', 'carlos.eduardo@email.com', '2023-01-12'),
+						('FÃ¡bio Lopes', '998.890.123-45', '1989-08-12', 'Av. das NaÃ§Ãµes Unidas, 1889, SÃ£o Paulo', '11987675678', 'fabio.lopes@email.com', '2023-01-12'),
+						('Tatiane Costa', '999.901.234-56', '1995-10-30', 'Rua GuararÃ¡, 532, SÃ£o Paulo', '11987676789', 'tatiane.costa@email.com', '2023-01-12'),
+						('Ricardo MendonÃ§a', '991.012.345-67', '1980-03-17', 'Rua Pedroso Alvarenga, 1100, SÃ£o Paulo', '11987677890', 'ricardo.mendonca@email.com', '2023-01-12'),
+						('Elisa Carvalho', '992.123.456-79', '1997-05-25', 'Av. Roque Petroni JÃºnior, 1089, SÃ£o Paulo', '11987678901', 'elisa.carvalho@email.com', '2023-01-12'),
+						('FlÃ¡vio Barros', '993.234.567-80', '1985-09-19', 'Rua Gomes de Carvalho, 1356, SÃ£o Paulo', '11987679012', 'flavio.barros@email.com', '2023-01-12'),
+						('Priscila Ribeiro', '994.345.678-81', '1983-07-28', 'Rua Bandeira Paulista, 982, SÃ£o Paulo', '11987680123', 'priscila.ribeiro@email.com', '2023-01-12');
+                        
+                        SELECT id_cliente,
+LAG(id_cliente) OVER (ORDER BY id_cliente) AS anterior,id_cliente - LAG(id_cliente) OVER (ORDER BY id_cliente) AS diferenca
+FROM clientes
+ORDER BY id_cliente;
